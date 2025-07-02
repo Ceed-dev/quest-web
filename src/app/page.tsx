@@ -6,8 +6,9 @@
 
 import Header from "@/app/components/Header"; // fixed site-wide
 import Hero from "@/app/components/Hero"; // top section
-import ProvenResults from "@/app/components/ProvenResults"; // Results section
+import ProvenResults from "@/app/components/ProvenResults"; // results section
 import FullFunnelGrowth from "@/app/components/FullFunnelGrowth"; // services grid section
+import Footer from "@/app/components/Footer"; // footer
 
 /** Main landing page */
 export default function Home() {
@@ -16,18 +17,15 @@ export default function Home() {
       {/* Fixed header at top */}
       <Header />
 
+      {/* Page Content */}
       <main>
         <Hero />
         <ProvenResults />
         <FullFunnelGrowth />
-
-        {/*
-          ── future sections go here ──
-          <Features />
-          <Services />
-          <Footer />
-        */}
       </main>
+
+      {/* Site footer */}
+      <Footer />
     </>
   );
 }
