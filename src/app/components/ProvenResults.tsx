@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 // Constants for card dimensions and spacing
 const CARD_WIDTH = 350;
-const CARD_HEIGHT = 500;
 const GAP = 64;
 
 // Represents a single statistic to display on a carousel card
@@ -91,7 +90,7 @@ export default function ProvenResults() {
       {/* Carousel wrapper */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden w-full flex-1 flex items-center rounded-3xl border border-[#D5B77A] md:border-none shadow-[0_0_25px_rgba(213,183,122,0.6)] md:shadow-none bg-[#1C1C1C] md:bg-transparent"
+        className="relative overflow-hidden w-full h-[500px] flex-1 flex items-center rounded-3xl border border-[#D5B77A] md:border-none shadow-[0_0_25px_rgba(213,183,122,0.6)] md:shadow-none bg-[#1C1C1C] md:bg-transparent"
       >
         {/* Motion container slides left/right based on index */}
         <motion.div
@@ -106,7 +105,7 @@ export default function ProvenResults() {
                 key={item.id}
                 className={`
                   flex-shrink-0
-                  w-[${CARD_WIDTH}px] h-[${CARD_HEIGHT}px]
+                  w-[350px] h-[500px]
                   p-6
                   rounded-3xl
                   transition-all
