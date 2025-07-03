@@ -72,7 +72,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="#">Privacy Policy</Link>
+              <Link
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#D5B77A]"
+              >
+                Privacy Policy
+              </Link>
             </li>
 
             {/* Mobile-only social icons */}
