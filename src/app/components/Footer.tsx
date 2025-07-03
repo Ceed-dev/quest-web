@@ -33,16 +33,29 @@ export default function Footer() {
           {/* Column 1: main site links */}
           <ul className="space-y-2">
             <li>
-              <Link href="#">About us</Link>
+              <Link href="#hero" className="hover:text-[#D5B77A]">
+                About us
+              </Link>
             </li>
             <li>
-              <Link href="#">Case Studies</Link>
+              <Link href="#proven-results" className="hover:text-[#D5B77A]">
+                Case Studies
+              </Link>
             </li>
             <li>
-              <Link href="#">Services</Link>
+              <Link href="#full-funnel-growth" className="hover:text-[#D5B77A]">
+                Services
+              </Link>
             </li>
             <li>
-              <Link href="#">Quest Platform</Link>
+              <Link
+                href="https://quest.0xqube.xyz/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#D5B77A]"
+              >
+                Quest Platform
+              </Link>
             </li>
           </ul>
 
