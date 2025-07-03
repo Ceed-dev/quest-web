@@ -18,10 +18,15 @@ import { Menu, X } from "lucide-react";
 
 // ----- Navigation items ----------------------------------------------
 const LINKS = [
-  { label: "About us", href: "#about" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Services", href: "#services" },
-  { label: "Quest Platform", href: "#quest" },
+  { label: "About us", href: "#hero", external: false },
+  { label: "Case Studies", href: "#proven-results", external: false },
+  { label: "Services", href: "#full-funnel-growth", external: false },
+  // mark this one external:
+  {
+    label: "Quest Platform",
+    href: "https://quest.0xqube.xyz/en",
+    external: true,
+  },
 ] as const;
 
 export default function Header() {
@@ -55,26 +60,38 @@ export default function Header() {
       {/* inner frame */}
       <div className="flex h-[50px] w-full max-w-[853px] items-center justify-between rounded-md bg-[#2B2B2B] px-4">
         {/* logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+        <Link href="#" className="flex shrink-0 items-center gap-2">
           <Image src="/logo-text.svg" alt="QUBE" width={100} height={100} />
         </Link>
 
         {/* desktop nav */}
         <nav className="hidden items-center gap-5 text-[16px] font-medium lg:flex">
-          {LINKS.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-[#BBA98D] transition-colors duration-200 hover:text-[#D5B77A]"
-            >
-              {label}
-            </Link>
-          ))}
+          {LINKS.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#BBA98D] transition-colors duration-200 hover:text-[#D5B77A]"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-[#BBA98D] transition-colors duration-200 hover:text-[#D5B77A]"
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         {/* desktop CTA */}
         <Link
-          href="/apply"
+          href="#"
           className="hidden lg:inline-flex items-center justify-center rounded-md bg-[#D5B77A] px-6 text-[19px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
         >
           Apply to Work With Us
@@ -104,14 +121,16 @@ export default function Header() {
               {/* top bar inside dropdown */}
               <div className="flex h-[60px] items-center justify-between px-4">
                 <Link
-                  href="/"
+                  href="#"
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-2"
                 >
-                  <Image src="/logo.svg" alt="QUBE" width={28} height={28} />
-                  <span className="text-lg font-semibold text-[#D5B77A]">
-                    QUBE
-                  </span>
+                  <Image
+                    src="/logo-text.svg"
+                    alt="QUBE"
+                    width={100}
+                    height={100}
+                  />
                 </Link>
                 <button
                   aria-label="Close Menu"
@@ -124,16 +143,29 @@ export default function Header() {
 
               {/* nav links */}
               <nav className="flex flex-col gap-2 px-6 pb-6 text-[25px] font-medium">
-                {LINKS.map(({ label, href }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    className="text-[#BBA98D] transition hover:text-[#D5B77A]"
-                  >
-                    {label}
-                  </Link>
-                ))}
+                {LINKS.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#BBA98D] transition hover:text-[#D5B77A]"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="text-[#BBA98D] transition hover:text-[#D5B77A]"
+                    >
+                      {link.label}
+                    </Link>
+                  ),
+                )}
               </nav>
             </div>
           </motion.div>
