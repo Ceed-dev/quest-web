@@ -56,8 +56,7 @@ export default function Header() {
       <div className="flex h-[50px] w-full max-w-[853px] items-center justify-between rounded-md bg-[#2B2B2B] px-4">
         {/* logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <Image src="/logo.svg" alt="QUBE" width={32} height={32} />
-          <span className="text-lg font-semibold text-[#D5B77A]">QUBE</span>
+          <Image src="/logo-text.svg" alt="QUBE" width={100} height={100} />
         </Link>
 
         {/* desktop nav */}
