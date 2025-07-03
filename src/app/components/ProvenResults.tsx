@@ -1,13 +1,35 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Constants for card dimensions and spacing
-type Item = { id: number; title: string };
 const CARD_WIDTH = 350;
-const CARD_HEIGHT = 480;
+const CARD_HEIGHT = 500;
 const GAP = 64;
+
+// Represents a single statistic to display on a carousel card
+type Stat = {
+  /** Descriptive label for the statistic (e.g., "User Onboarded") */
+  label: string;
+  /** Display value for the statistic (e.g., "4.5K+") */
+  value: string;
+};
+
+/**
+ * Defines the shape of a carousel item, including an optional stats array.
+ */
+export type Item = {
+  /** Unique identifier for each carousel item */
+  id: number;
+  /** Title text displayed on the card */
+  title: string;
+  /** URL or path to the icon image for this card */
+  iconSrc: string;
+  /** Optional array of statistics to render on the card */
+  stats?: Stat[];
+};
 
 export default function ProvenResults() {
   // Ref to carousel container for centering calculations
@@ -21,11 +43,28 @@ export default function ProvenResults() {
     setOffset((containerWidth - CARD_WIDTH) / 2);
   }, []);
 
-  // Sample items for carousel
+  // Items for carousel
   const items: Item[] = [
-    { id: 1, title: "SuperWalk" },
-    { id: 2, title: "Arbitrum" },
-    { id: 3, title: "Tokyobeast" },
+    {
+      id: 1,
+      title: "SuperWalk",
+      iconSrc: "/carousel/superwalk.svg",
+    },
+    {
+      id: 2,
+      title: "Arbitrum",
+      iconSrc: "/carousel/arbitrum.svg",
+      stats: [
+        { label: "User Onboarded", value: "4.5K+" },
+        { label: "Impressions", value: "250K+" },
+        { label: "Total PRs", value: "40+" },
+      ],
+    },
+    {
+      id: 3,
+      title: "Tokyobeast",
+      iconSrc: "/carousel/tokyobeast.svg",
+    },
   ];
 
   // Carousel index state and handlers
@@ -78,10 +117,38 @@ export default function ProvenResults() {
                   }
                 `}
               >
-                {/* Card placeholder content */}
+                {/* Card content: icon, title and optional stats */}
                 <div className="h-full flex flex-col items-center justify-center">
-                  <p className="text-[#BBA98D] mb-2">{item.title}</p>
-                  <p className="text-sm text-[#888]">…</p>
+                  {/* Icon */}
+                  <Image
+                    src={item.iconSrc}
+                    alt={item.title}
+                    width={90}
+                    height={90}
+                    className="rounded-3xl"
+                    unoptimized
+                  />
+
+                  {/* Title */}
+                  <h3 className="text-[#D5B77A] text-[50px] font-semibold">
+                    {item.title}
+                  </h3>
+
+                  {/* Optional stats list */}
+                  {item.stats && (
+                    <ul className="text-center space-y-3">
+                      {item.stats.map((stat) => (
+                        <li key={stat.label}>
+                          <span className="text-[25px] text-[#BBA98D]">
+                            {stat.label}
+                          </span>
+                          <span className="block font-semibold text-[25px] text-[#F7E1D0]">
+                            {stat.value}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             );
