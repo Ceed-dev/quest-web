@@ -62,7 +62,14 @@ export default function Footer() {
           {/* Column 2: legal links */}
           <ul className="space-y-2">
             <li>
-              <Link href="#">Terms of Service</Link>
+              <Link
+                href="/terms-of-service"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#D5B77A]"
+              >
+                Terms of Service
+              </Link>
             </li>
             <li>
               <Link href="#">Privacy Policy</Link>
