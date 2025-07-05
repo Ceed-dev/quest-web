@@ -86,10 +86,10 @@ export default function Footer() {
             <div className="space-y-2 block lg:hidden">
               <li>
                 <Link
-                  href="https://x.com/yourprofile"
+                  href="https://x.com/0xQube"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center space-x-2"
+                  className="inline-flex items-center space-x-2 hover:text-[#D5B77A]"
                 >
                   <span>X</span>
                   <ArrowUpRight className="w-7 h-7" />
@@ -113,10 +113,10 @@ export default function Footer() {
           <ul className="space-y-2 hidden lg:block">
             <li>
               <Link
-                href="https://x.com/yourprofile"
+                href="https://x.com/0xQube"
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center space-x-2"
+                className="inline-flex items-center space-x-2 hover:text-[#D5B77A]"
               >
                 <span>X</span>
                 <ArrowUpRight className="w-7 h-7" />
