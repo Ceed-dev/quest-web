@@ -91,7 +91,9 @@ export default function Header() {
 
         {/* desktop CTA */}
         <Link
-          href="#"
+          href="https://form.typeform.com/to/ZXMA01GK?typeform-source=t.co"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center justify-center rounded-md bg-[#D5B77A] px-6 text-[19px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
         >
           Apply to Work With Us
