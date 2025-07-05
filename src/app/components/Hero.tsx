@@ -75,7 +75,9 @@ export default function Hero() {
 
           {/* Call to action link */}
           <Link
-            href="#"
+            href="https://form.typeform.com/to/ZXMA01GK?typeform-source=t.co"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-5 md:mt-10 lg:mt-20 inline-block text-[20px] lg:text-[30px] font-semibold text-[#F7E1D0] underline underline-offset-[10px] hover:text-[#D5B77A] transition"
           >
             Start Scaling Today
