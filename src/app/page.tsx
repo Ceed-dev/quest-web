@@ -37,7 +37,7 @@ export default function Home() {
           Pass only the slice each section needs to keep components simple. */}
       <main>
         <Hero t={t.hero} />
-        <ProvenResults />
+        <ProvenResults t={t.provenResults} />
         <FullFunnelGrowth />
       </main>
 

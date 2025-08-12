@@ -20,6 +20,11 @@ export const messages = {
       cta: "Start Scaling Today",
       trustedBy: "Trusted by",
     },
+    provenResults: {
+      heading: "Proven Results, Real Growth",
+      description:
+        "A track record of driving results across Japan and Asia - from launch to scale.",
+    },
   },
   ja: {
     header: {
@@ -38,9 +43,15 @@ export const messages = {
       subHeading: "支払うのは成果に対して。時間ではありません。",
       description1: "日本とアジア全域をカバーするフルファネルマーケティング。",
       description2: "ゲーム・アプリ・ブランドのGTM戦略からローカライズ、",
-      description3: "ユーザー獲得、長期的な成長まで、ワンストップで支援します。",
+      description3:
+        "ユーザー獲得、長期的な成長まで、ワンストップで支援します。",
       cta: "今日から成長を加速させましょう",
       trustedBy: "導入企業例",
+    },
+    provenResults: {
+      heading: "実績が証明する、本物の成長",
+      description:
+        "日本からアジアまで、ローンチからスケールまで成果を生み出してきた実績があります。",
     },
   },
 };
