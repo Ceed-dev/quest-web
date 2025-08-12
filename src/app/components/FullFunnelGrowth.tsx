@@ -3,7 +3,13 @@
 import React from "react";
 import Image from "next/image";
 
-export default function FullFunnelGrowth() {
+type FullFunnelGrowthT = {
+  heading1: string;
+  heading2: string;
+  description: string;
+};
+
+export default function FullFunnelGrowth({ t }: { t: FullFunnelGrowthT }) {
   // List of service card image paths (stored under /public/services)
   const cards: string[] = [
     "/services/media-pr.svg",
@@ -44,9 +50,9 @@ export default function FullFunnelGrowth() {
             md:w-1/2                      /* half width on md+ */
           "
         >
-          Full-Funnel Growth.
+          {t.heading1}
           <br />
-          Local Expertise. Real Results.
+          {t.heading2}
         </h2>
 
         {/* Sub-title / Description */}
@@ -59,9 +65,7 @@ export default function FullFunnelGrowth() {
             md:w-1/2                      /* half width on md+ */
           "
         >
-          From go-to-market to user acquisition, we help brands scale across
-          Japan and Asia with strategy-first marketing and execution that
-          performs.
+          {t.description}
         </p>
       </div>
 

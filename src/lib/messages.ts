@@ -25,6 +25,12 @@ export const messages = {
       description:
         "A track record of driving results across Japan and Asia - from launch to scale.",
     },
+    fullFunnelGrowth: {
+      heading1: "Full-Funnel Growth.",
+      heading2: "Local Expertise. Real Results.",
+      description:
+        "From go-to-market to user acquisition, we help brands scale across Japan and Asia with strategy - first marketing and execution that performs.",
+    },
   },
   ja: {
     header: {
@@ -52,6 +58,12 @@ export const messages = {
       heading: "実績が証明する、本物の成長",
       description:
         "日本からアジアまで、ローンチからスケールまで成果を生み出してきた実績があります。",
+    },
+    fullFunnelGrowth: {
+      heading1: "市場を網羅した成長戦略。",
+      heading2: "地域に根ざした知見。確かな成果。",
+      description:
+        "市場参入からユーザー獲得まで、戦略を軸にしたマーケティングと成果を生む実行力で、ブランドの成長を日本とアジア全域で支援します。",
     },
   },
 };

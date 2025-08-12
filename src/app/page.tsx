@@ -38,7 +38,7 @@ export default function Home() {
       <main>
         <Hero t={t.hero} />
         <ProvenResults t={t.provenResults} />
-        <FullFunnelGrowth />
+        <FullFunnelGrowth t={t.fullFunnelGrowth} />
       </main>
 
       {/* Footer displayed at the bottom of the page */}
