@@ -31,6 +31,21 @@ export const messages = {
       description:
         "From go-to-market to user acquisition, we help brands scale across Japan and Asia with strategy - first marketing and execution that performs.",
     },
+    footer: {
+      description1: "Qube is a performance-first UA marketing",
+      description2: "agency helping apps, games, and digital",
+      description3: "brands scale across Japan and Asia.",
+      builtInTokyo: "Built in Tokyo.",
+      scalingAcrossAsia: "Scaling across Asia.",
+      nav: {
+        about: "About us",
+        caseStudies: "Case Studies",
+        services: "Services",
+        questPlatform: "Quest Platform",
+        termsOfService: "Terms of Service",
+        privacyPolicy: "Privacy Policy",
+      },
+    },
   },
   ja: {
     header: {
@@ -64,6 +79,21 @@ export const messages = {
       heading2: "地域に根ざした知見。確かな成果。",
       description:
         "市場参入からユーザー獲得まで、戦略を軸にしたマーケティングと成果を生む実行力で、ブランドの成長を日本とアジア全域で支援します。",
+    },
+    footer: {
+      description1: "Qubeは、アプリ、ゲーム、デジタルブランドの",
+      description2: "成長を支援する、パフォーマンス重視の",
+      description3: "ユーザー獲得マーケティング専門のチームです。",
+      builtInTokyo: "東京発。",
+      scalingAcrossAsia: "アジアへ拡大中。",
+      nav: {
+        about: "会社概要",
+        caseStudies: "事例紹介",
+        services: "サービス",
+        questPlatform: "Questプラットフォーム",
+        termsOfService: "利用規約",
+        privacyPolicy: "プライバシーポリシー",
+      },
     },
   },
 };

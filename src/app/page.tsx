@@ -42,7 +42,7 @@ export default function Home() {
       </main>
 
       {/* Footer displayed at the bottom of the page */}
-      <Footer />
+      <Footer t={t.footer} />
     </>
   );
 }
