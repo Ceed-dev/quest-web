@@ -9,16 +9,23 @@ type FullFunnelGrowthT = {
   description: string;
 };
 
-export default function FullFunnelGrowth({ t }: { t: FullFunnelGrowthT }) {
+export default function FullFunnelGrowth({
+  t,
+  lang,
+}: {
+  t: FullFunnelGrowthT;
+  lang: "en" | "ja";
+}) {
   // List of service card image paths (stored under /public/services)
-  const cards: string[] = [
-    "/services/media-pr.svg",
-    "/services/user-acquisition-growth.svg",
-    "/services/japan-asia-gtm-strategy.svg",
-    "/services/app-growth-aso-content.svg",
-    "/services/community-activation-events.svg",
-    "/services/ip-licensing-brand-partnerships.svg",
+  const cardFiles: string[] = [
+    "media-pr.svg",
+    "user-acquisition-growth.svg",
+    "japan-asia-gtm-strategy.svg",
+    "app-growth-aso-content.svg",
+    "community-activation-events.svg",
+    "ip-licensing-brand-partnerships.svg",
   ];
+  const cards = cardFiles.map((file) => `/services/${lang}/${file}`);
 
   return (
     <section
