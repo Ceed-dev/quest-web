@@ -10,26 +10,33 @@
 //     the menu automatically closes via matchMedia listener.
 // ----------------------------------------------------
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+// import LanguageSwitch from "@/components/ui/LanguageSwitch";
 
-// ----- Navigation items ----------------------------------------------
-const LINKS = [
-  { label: "About us", href: "#hero", external: false },
-  { label: "Case Studies", href: "#proven-results", external: false },
-  { label: "Services", href: "#full-funnel-growth", external: false },
-  // mark this one external:
-  {
-    label: "Quest Platform",
-    href: "https://quest.0xqube.xyz/en",
-    external: true,
-  },
-] as const;
+type Locale = "en" | "ja";
+type HeaderT = {
+  nav: {
+    about: string;
+    caseStudies: string;
+    services: string;
+    questPlatform: string;
+  };
+  cta: { apply: string };
+};
 
-export default function Header() {
+export default function Header({
+  // locale,
+  // setLocale,
+  t,
+}: {
+  locale: Locale;
+  setLocale: React.Dispatch<React.SetStateAction<Locale>>;
+  t: HeaderT;
+}) {
   // --------------------------------------------------
   // state: whether the mobile dropdown is open
   // --------------------------------------------------
@@ -52,13 +59,26 @@ export default function Header() {
     return () => mql.removeEventListener("change", handleChange);
   }, []);
 
+  // ----- Navigation items ----------------------------------------------
+  const links = [
+    { label: t.nav.about, href: "#hero", external: false },
+    { label: t.nav.caseStudies, href: "#proven-results", external: false },
+    { label: t.nav.services, href: "#full-funnel-growth", external: false },
+    // mark this one external:
+    {
+      label: t.nav.questPlatform,
+      href: "https://quest.0xqube.xyz/en",
+      external: true,
+    },
+  ] as const;
+
   // --------------------------------------------------
   // render
   // --------------------------------------------------
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-5 py-[18.5px]">
       {/* inner frame */}
-      <div className="flex h-[50px] w-full max-w-[853px] items-center justify-between rounded-md bg-[#2B2B2B] px-4">
+      <div className="flex h-[50px] w-full max-w-[1000px] items-center justify-between rounded-md bg-[#2B2B2B] px-4">
         {/* logo */}
         <Link href="#" className="flex shrink-0 items-center gap-2">
           <Image src="/logo-text.svg" alt="QUBE" width={100} height={100} />
@@ -66,7 +86,7 @@ export default function Header() {
 
         {/* desktop nav */}
         <nav className="hidden items-center gap-5 text-[16px] font-medium lg:flex">
-          {LINKS.map((link) =>
+          {links.map((link) =>
             link.external ? (
               <a
                 key={link.href}
@@ -89,15 +109,26 @@ export default function Header() {
           )}
         </nav>
 
-        {/* desktop CTA */}
-        <Link
-          href="https://form.typeform.com/to/ZXMA01GK?typeform-source=t.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center justify-center rounded-md bg-[#D5B77A] px-6 text-[19px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
-        >
-          Apply to Work With Us
-        </Link>
+        <div className="hidden lg:inline-flex flex gap-4">
+          {/* Language selection control: toggles between English (EN) and Japanese (JA) */}
+          {/* Temporarily disabled for production release until translations are finalized */}
+          {/*
+          <LanguageSwitch
+            locale={locale}
+            onLocaleChange={(l) => setLocale(l)}
+          />
+          */}
+
+          {/* desktop CTA */}
+          <Link
+            href="https://form.typeform.com/to/ZXMA01GK?typeform-source=t.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-[250px] items-center justify-center rounded-md bg-[#D5B77A] px-3 text-[19px] font-semibold text-[#1C1C1C] transition hover:opacity-90"
+          >
+            {t.cta.apply}
+          </Link>
+        </div>
 
         {/* mobile hamburger */}
         <button
@@ -119,7 +150,7 @@ export default function Header() {
             transition={{ duration: 0.18, ease: "easeOut" }}
             className="fixed inset-x-0 top-0 z-40 flex justify-center px-5 py-[18.5px]"
           >
-            <div className="flex w-full max-w-[853px] flex-col rounded-md bg-[#2B2B2B] shadow-lg">
+            <div className="flex w-full max-w-[1000px] flex-col rounded-md bg-[#2B2B2B] shadow-lg">
               {/* top bar inside dropdown */}
               <div className="flex h-[60px] items-center justify-between px-4">
                 <Link
@@ -145,7 +176,7 @@ export default function Header() {
 
               {/* nav links */}
               <nav className="flex flex-col gap-2 px-6 pb-6 text-[25px] font-medium">
-                {LINKS.map((link) =>
+                {links.map((link) =>
                   link.external ? (
                     <a
                       key={link.href}
@@ -169,6 +200,17 @@ export default function Header() {
                   ),
                 )}
               </nav>
+
+              {/* Language selection control: toggles between English (EN) and Japanese (JA) */}
+              {/* Temporarily disabled for production release until translations are finalized */}
+              {/*
+              <div className="text-center mb-3">
+                <LanguageSwitch
+                  locale={locale}
+                  onLocaleChange={(l) => setLocale(l)}
+                />
+              </div>
+              */}
             </div>
           </motion.div>
         )}

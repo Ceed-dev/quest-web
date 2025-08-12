@@ -4,7 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-export default function Footer() {
+type FooterT = {
+  description1: string;
+  description2: string;
+  description3: string;
+  builtInTokyo: string;
+  scalingAcrossAsia: string;
+  nav: {
+    about: string;
+    caseStudies: string;
+    services: string;
+    questPlatform: string;
+    termsOfService: string;
+    privacyPolicy: string;
+  };
+};
+
+export default function Footer({ t }: { t: FooterT }) {
   return (
     <footer
       id="footer"
@@ -15,16 +31,16 @@ export default function Footer() {
         {/* Left: agency description */}
         <div className="flex-1">
           <p className="text-[16px] md:text-[20px] lg:text-[35px] font-semibold text-[#D5B77A] leading-[1.1]">
-            Qube is a performance-first UA marketing
+            {t.description1}
             <br />
-            agency helping apps, games, and digital
+            {t.description2}
             <br />
-            brands scale across Japan and Asia.
+            {t.description3}
           </p>
           <p className="mt-5 lg:mt-10 text-[15px] lg:text-[20px]">
-            Built in Tokyo.
+            {t.builtInTokyo}
             <br />
-            Scaling across Asia.
+            {t.scalingAcrossAsia}
           </p>
         </div>
 
@@ -34,17 +50,17 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>
               <Link href="#hero" className="hover:text-[#D5B77A]">
-                About us
+                {t.nav.about}
               </Link>
             </li>
             <li>
               <Link href="#proven-results" className="hover:text-[#D5B77A]">
-                Case Studies
+                {t.nav.caseStudies}
               </Link>
             </li>
             <li>
               <Link href="#full-funnel-growth" className="hover:text-[#D5B77A]">
-                Services
+                {t.nav.services}
               </Link>
             </li>
             <li>
@@ -54,7 +70,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-[#D5B77A]"
               >
-                Quest Platform
+                {t.nav.questPlatform}
               </Link>
             </li>
           </ul>
@@ -68,7 +84,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-[#D5B77A]"
               >
-                Terms of Service
+                {t.nav.termsOfService}
               </Link>
             </li>
             <li>
@@ -78,7 +94,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-[#D5B77A]"
               >
-                Privacy Policy
+                {t.nav.privacyPolicy}
               </Link>
             </li>
 

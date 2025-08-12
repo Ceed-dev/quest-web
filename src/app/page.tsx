@@ -1,31 +1,48 @@
-// src/app/page.tsx  — Landing page entry
+// src/app/page.tsx — Landing page entry
 // --------------------------------------------------
-// Renders the fixed <Header/> and stacks the remaining
-// one-page sections (Hero, …) below it.
-//---------------------------------------------------
+// Displays the fixed <Header/> at the top,
+// followed by stacked one-page sections (Hero, ProvenResults, FullFunnelGrowth),
+// and ends with the <Footer/>.
+// Adds simple locale state to switch EN/JA and passes texts to children.
+// --------------------------------------------------
 
-import Header from "@/app/components/Header"; // fixed site-wide
-import Hero from "@/app/components/Hero"; // top section
-import ProvenResults from "@/app/components/ProvenResults"; // results section
-import FullFunnelGrowth from "@/app/components/FullFunnelGrowth"; // services grid section
-import Footer from "@/app/components/Footer"; // footer
+"use client"; // Required to use React hooks on this page
 
-/** Main landing page */
+import { useState } from "react";
+import { messages } from "@/lib/messages"; // Translation dictionary
+
+import Header from "@/app/components/Header"; // Fixed site-wide header
+import Hero from "@/app/components/Hero"; // Top hero section
+import ProvenResults from "@/app/components/ProvenResults"; // Results/statistics section
+import FullFunnelGrowth from "@/app/components/FullFunnelGrowth"; // Services/features grid section
+import Footer from "@/app/components/Footer"; // Site-wide footer
+
+type Locale = "en" | "ja";
+
+/** Main landing page component */
 export default function Home() {
+  // Locale state: controls which language is rendered across the page
+  const [locale, setLocale] = useState<Locale>("en");
+
+  // Current message bundle for the selected locale
+  const t = messages[locale];
+
   return (
     <>
-      {/* Fixed header at top */}
-      <Header />
+      {/* Fixed header always visible at the top.
+          Pass the current locale and a setter so the header can host the language switcher. */}
+      <Header locale={locale} setLocale={setLocale} t={t.header} />
 
-      {/* Page Content */}
+      {/* Main content sections.
+          Pass only the slice each section needs to keep components simple. */}
       <main>
-        <Hero />
-        <ProvenResults />
-        <FullFunnelGrowth />
+        <Hero t={t.hero} />
+        <ProvenResults t={t.provenResults} />
+        <FullFunnelGrowth t={t.fullFunnelGrowth} lang={locale} />
       </main>
 
-      {/* Site footer */}
-      <Footer />
+      {/* Footer displayed at the bottom of the page */}
+      <Footer t={t.footer} />
     </>
   );
 }

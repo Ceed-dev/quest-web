@@ -8,6 +8,11 @@ import { motion } from "framer-motion";
 const CARD_WIDTH = 350;
 const GAP = 64;
 
+type ProvenResultsT = {
+  heading: string;
+  description: string;
+};
+
 // Represents a single statistic to display on a carousel card
 type Stat = {
   /** Descriptive label for the statistic (e.g., "User Onboarded") */
@@ -30,7 +35,7 @@ export type Item = {
   stats?: Stat[];
 };
 
-export default function ProvenResults() {
+export default function ProvenResults({ t }: { t: ProvenResultsT }) {
   // Ref to carousel container for centering calculations
   const containerRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
@@ -79,11 +84,10 @@ export default function ProvenResults() {
       {/* Section heading and subheading */}
       <div className="mb-12">
         <h2 className="text-[35px] md:text-[50px] font-semibold text-[#D5B77A]">
-          Proven Results, Real Growth
+          {t.heading}
         </h2>
         <p className="mt-2 text-[17px] md:text-[22px] text-[#BBA98D]">
-          A track record of driving results across Japan and Asia — from launch
-          to scale.
+          {t.description}
         </p>
       </div>
 
@@ -109,10 +113,9 @@ export default function ProvenResults() {
                   p-6
                   rounded-3xl
                   transition-all
-                  ${
-                    isActive
-                      ? "bg-[#1C1C1C] scale-105 md:border md:border-[#D5B77A] md:shadow-[0_0_25px_rgba(213,183,122,0.6)]"
-                      : "bg-[#1A1A1A] opacity-40 md:border md:border-gray-300"
+                  ${isActive
+                    ? "bg-[#1C1C1C] scale-105 md:border md:border-[#D5B77A] md:shadow-[0_0_25px_rgba(213,183,122,0.6)]"
+                    : "bg-[#1A1A1A] opacity-40 md:border md:border-gray-300"
                   }
                 `}
               >

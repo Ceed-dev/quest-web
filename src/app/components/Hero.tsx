@@ -10,7 +10,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+type HeroT = {
+  heading1: string;
+  heading2: string;
+  heading3: string;
+  subHeading: string;
+  description1: string;
+  description2: string;
+  description3: string;
+  cta: string;
+  trustedBy: string;
+};
+
+export default function Hero({ t }: { t: HeroT }) {
   // Partner logo paths for marquee
   const logos = [
     "/logo-text.svg",
@@ -47,30 +59,28 @@ export default function Hero() {
         <div className="flex-1">
           {/* Eyebrow label */}
           <p className="text-[#F7E1D0] tracking-tighter text-[20px] lg:text-[40px] leading-none">
-            ASIA&apos;S LEADING
+            {t.heading1}
           </p>
 
           {/* Main headline */}
           <h1 className="mt-2 lg:mt-5 tracking-tight leading-[1.07] text-[28px] md:text-[50px] lg:text-[70px] text-[#D5B77A]">
-            PERFORMANCE‑BASED
+            {t.heading2}
             <br />
-            MARKETING AGENCY
+            {t.heading3}
           </h1>
 
           {/* Sub-headline */}
           <p className="mt-5 lg:mt-10 text-[16px] lg:text-[30px] font-medium text-[#D5B77A]">
-            Pay for results. Not hours.
+            {t.subHeading}
           </p>
 
           {/* Body copy with explicit line breaks per Figma */}
           <p className="mt-2 lg:mt-5 text-[13px] lg:text-[22px] leading-[1.2] text-[#BBA98D]">
-            <span className="font-semibold">
-              Full‑funnel marketing across Japan and Asia.
-            </span>
+            <span className="font-semibold">{t.description1}</span>
             <br />
-            We support games, apps, and brands from GTM strategy and
+            {t.description2}
             <br />
-            localization to user acquisition and long‑term growth.
+            {t.description3}
           </p>
 
           {/* Call to action link */}
@@ -80,14 +90,14 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="mt-5 md:mt-10 lg:mt-20 inline-block text-[20px] lg:text-[30px] font-semibold text-[#F7E1D0] underline underline-offset-[10px] hover:text-[#D5B77A] transition"
           >
-            Start Scaling Today
+            {t.cta}
           </Link>
 
           {/* Trusted by marquee logos */}
           <div className="mt-5 md:mt-10 lg:mt-18">
             {/* Section label */}
             <p className="mb-6 text-[16px] lg:text-[24px] font-medium text-[#BBA98D]">
-              Trusted by
+              {t.trustedBy}
             </p>
             {/* Marquee container */}
             <div className="mt-5 md:mt-10 md:w-[50vw] w-full overflow-hidden relative select-none">
