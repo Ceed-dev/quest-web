@@ -15,7 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import LanguageSwitch from "@/components/ui/LanguageSwitch";
+// import LanguageSwitch from "@/components/ui/LanguageSwitch";
 
 type Locale = "en" | "ja";
 type HeaderT = {
@@ -29,8 +29,8 @@ type HeaderT = {
 };
 
 export default function Header({
-  locale,
-  setLocale,
+  // locale,
+  // setLocale,
   t,
 }: {
   locale: Locale;
