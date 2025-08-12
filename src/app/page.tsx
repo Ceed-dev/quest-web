@@ -36,7 +36,7 @@ export default function Home() {
       {/* Main content sections.
           Pass only the slice each section needs to keep components simple. */}
       <main>
-        <Hero />
+        <Hero t={t.hero} />
         <ProvenResults />
         <FullFunnelGrowth />
       </main>
