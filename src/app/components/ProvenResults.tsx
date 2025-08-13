@@ -13,6 +13,8 @@ type ProvenResultsT = {
   description: string;
 };
 
+type Lang = "en" | "ja";
+
 // Represents a single statistic to display on a carousel card
 type Stat = {
   /** Descriptive label for the statistic (e.g., "User Onboarded") */
@@ -20,6 +22,8 @@ type Stat = {
   /** Display value for the statistic (e.g., "4.5K+") */
   value: string;
 };
+
+type LocalizedStat = Record<Lang, Stat>;
 
 /**
  * Defines the shape of a carousel item, including an optional stats array.
@@ -32,10 +36,16 @@ export type Item = {
   /** URL or path to the icon image for this card */
   iconSrc: string;
   /** Optional array of statistics to render on the card */
-  stats?: Stat[];
+  stats?: LocalizedStat[];
 };
 
-export default function ProvenResults({ t }: { t: ProvenResultsT }) {
+export default function ProvenResults({
+  t,
+  lang,
+}: {
+  t: ProvenResultsT;
+  lang: "en" | "ja";
+}) {
   // Ref to carousel container for centering calculations
   const containerRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
@@ -54,9 +64,21 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       title: "SuperWalk",
       iconSrc: "/carousel/superwalk.svg",
       stats: [
-        { label: "Watchlist & Follower Growth in 2 days", value: "10K+" },
-        { label: "NFT Trading Volume", value: "23M+" },
-        { label: "Transactions", value: "42M+" },
+        {
+          en: { label: "Watchlist & Follower Growth in 2 days", value: "10K+" },
+          ja: {
+            label: "2日間でのウォッチリスト＆フォロワー増加",
+            value: "1万+",
+          },
+        },
+        {
+          en: { label: "NFT Trading Volume", value: "23M+" },
+          ja: { label: "NFT取引量", value: "2,300万+" },
+        },
+        {
+          en: { label: "Transactions", value: "42M+" },
+          ja: { label: "取引数", value: "4,200万+" },
+        },
       ],
     },
     {
@@ -69,9 +91,18 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       title: "Arbitrum",
       iconSrc: "/carousel/arbitrum.svg",
       stats: [
-        { label: "User Onboarded", value: "4.5K+" },
-        { label: "Impressions", value: "250K+" },
-        { label: "Total PRs", value: "40+" },
+        {
+          en: { label: "User Onboarded", value: "4.5K+" },
+          ja: { label: "登録ユーザー数", value: "4,500+" },
+        },
+        {
+          en: { label: "Impressions", value: "250K+" },
+          ja: { label: "インプレッション", value: "25万+" },
+        },
+        {
+          en: { label: "Total PRs", value: "40+" },
+          ja: { label: "総PR数", value: "40+" },
+        },
       ],
     },
     {
@@ -84,9 +115,21 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       title: "Tokyobeast",
       iconSrc: "/carousel/tokyobeast.svg",
       stats: [
-        { label: "#1 Trending", value: "on Dextool 3 Times in a Month" },
-        { label: "50k+ Participants", value: "in 5 Social Events" },
-        { label: "200K+", value: "Social User Growth" },
+        {
+          en: { label: "#1 Trending", value: "on Dextool 3 Times in a Month" },
+          ja: { label: "トレンド1位", value: "Dextoolで月3回" },
+        },
+        {
+          en: { label: "50k+ Participants", value: "in 5 Social Events" },
+          ja: {
+            label: "参加者数5万人以上",
+            value: "5回のソーシャルイベントで",
+          },
+        },
+        {
+          en: { label: "200K+", value: "Social User Growth" },
+          ja: { label: "20万+", value: "ソーシャルユーザー増加" },
+        },
       ],
     },
     {
@@ -99,11 +142,21 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       title: "Delabs",
       iconSrc: "/carousel/delabs.png",
       stats: [
-        { label: "Perp Trading Volume in 2 Weeks", value: "$1.2B+" },
         {
-          label:
-            "Ranked #1 during key phases, surpassing dYdX, with Korea leading global traffic",
-          value: "",
+          en: { label: "Perp Trading Volume in 2 Weeks", value: "$1.2B+" },
+          ja: { label: "2週間の先物取引量", value: "$12億+" },
+        },
+        {
+          en: {
+            label:
+              "Ranked #1 during key phases, surpassing dYdX, with Korea leading global traffic",
+            value: "",
+          },
+          ja: {
+            label:
+              "重要期間中にdYdXを上回り1位、韓国が世界的なトラフィックを牽引",
+            value: "",
+          },
         },
       ],
     },
@@ -178,12 +231,12 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
                   {item.stats && (
                     <ul className="text-center space-y-3">
                       {item.stats.map((stat) => (
-                        <li key={stat.label}>
+                        <li key={stat[lang].label}>
                           <span className="text-[25px] text-[#BBA98D]">
-                            {stat.label}
+                            {stat[lang].label}
                           </span>
                           <span className="block font-semibold text-[25px] text-[#F7E1D0]">
-                            {stat.value}
+                            {stat[lang].value}
                           </span>
                         </li>
                       ))}
