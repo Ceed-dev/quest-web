@@ -174,7 +174,7 @@ export default function ProvenResults({
     >
       {/* Section heading and subheading */}
       <div className="mb-12">
-        <h2 className="text-[35px] md:text-[50px] font-semibold text-[#D5B77A]">
+        <h2 className="text-[35px] md:text-[45px] font-semibold text-[#D5B77A]">
           {t.heading}
         </h2>
         <p className="mt-2 text-[17px] md:text-[22px] text-[#BBA98D]">
@@ -223,7 +223,7 @@ export default function ProvenResults({
                   />
 
                   {/* Title */}
-                  <h3 className="text-[#D5B77A] text-[50px] font-semibold">
+                  <h3 className="text-[#D5B77A] text-[40px] font-semibold">
                     {item.title}
                   </h3>
 
@@ -232,10 +232,10 @@ export default function ProvenResults({
                     <ul className="text-center space-y-3">
                       {item.stats.map((stat) => (
                         <li key={stat[lang].label}>
-                          <span className="text-[25px] text-[#BBA98D]">
+                          <span className="text-[20px] text-[#BBA98D]">
                             {stat[lang].label}
                           </span>
-                          <span className="block font-semibold text-[25px] text-[#F7E1D0]">
+                          <span className="block font-semibold text-[18px] text-[#F7E1D0]">
                             {stat[lang].value}
                           </span>
                         </li>

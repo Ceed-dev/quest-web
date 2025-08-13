@@ -24,20 +24,20 @@ export default function Footer({ t }: { t: FooterT }) {
   return (
     <footer
       id="footer"
-      className="relative bg-[#252525] text-[#BBA98D] py-16 px-6 lg:px-12"
+      className="relative bg-[#252525] text-[#BBA98D] pt-16 pb-5 px-6 lg:px-12"
     >
       {/* Top row: description and navigation links */}
       <div className="flex flex-col lg:flex-row">
         {/* Left: agency description */}
         <div className="flex-1">
-          <p className="text-[16px] md:text-[20px] lg:text-[35px] font-semibold text-[#D5B77A] leading-[1.1]">
+          <p className="text-[14px] md:text-[18px] lg:text-[28px] font-semibold text-[#D5B77A] leading-[1.1]">
             {t.description1}
             <br />
             {t.description2}
             <br />
             {t.description3}
           </p>
-          <p className="mt-5 lg:mt-10 text-[15px] lg:text-[20px]">
+          <p className="mt-5 lg:mt-10 text-[12px] lg:text-[18px]">
             {t.builtInTokyo}
             <br />
             {t.scalingAcrossAsia}
@@ -45,7 +45,7 @@ export default function Footer({ t }: { t: FooterT }) {
         </div>
 
         {/* Right: primary links, legal links, and social icons */}
-        <div className="flex-1 flex justify-between md:justify-around text-[17px] md:text-[20px] mt-12 lg:mt-0">
+        <div className="flex-1 flex justify-between md:justify-around text-[15px] md:text-[18px] mt-12 lg:mt-0">
           {/* Column 1: main site links */}
           <ul className="space-y-2">
             <li>
@@ -154,7 +154,7 @@ export default function Footer({ t }: { t: FooterT }) {
       </div>
 
       {/* Bottom row: logo and copyright */}
-      <div className="mx-auto mt-10 flex flex-col lg:flex-row items-end justify-between">
+      <div className="mx-auto mt-10 lg:mt-30 flex flex-col lg:flex-row items-end justify-between">
         {/* Logo */}
         <Image
           src="/logo-text.svg"
@@ -165,7 +165,7 @@ export default function Footer({ t }: { t: FooterT }) {
           className="w-full lg:w-1/2 h-auto"
         />
         {/* Copyright */}
-        <p className="text-[14px] lg:text-[27px]">
+        <p className="text-[10px] lg:text-[25px]">
           © {new Date().getFullYear()} Qube. All rights reserved.
         </p>
       </div>
