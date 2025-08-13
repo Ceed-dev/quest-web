@@ -71,24 +71,24 @@ export default function Hero({ t }: { t: HeroT }) {
         {/* Text column */}
         <div className="flex-1">
           {/* Eyebrow label */}
-          <p className="text-[#F7E1D0] tracking-tighter text-[20px] lg:text-[40px] leading-none">
+          <p className="text-[#F7E1D0] tracking-tighter text-[15px] lg:text-[35px] leading-none">
             {t.heading1}
           </p>
 
           {/* Main headline */}
-          <h1 className="mt-2 lg:mt-5 tracking-tight leading-[1.07] text-[28px] md:text-[50px] lg:text-[70px] text-[#D5B77A]">
+          <h1 className="mt-2 lg:mt-5 tracking-tight leading-[1.04] text-[23px] md:text-[45px] lg:text-[63px] text-[#D5B77A]">
             {t.heading2}
             <br />
             {t.heading3}
           </h1>
 
           {/* Sub-headline */}
-          <p className="mt-5 lg:mt-10 text-[16px] lg:text-[30px] font-medium text-[#D5B77A]">
+          <p className="mt-5 lg:mt-10 text-[16px] lg:text-[25px] font-medium text-[#D5B77A]">
             {t.subHeading}
           </p>
 
           {/* Body copy with explicit line breaks per Figma */}
-          <p className="mt-2 lg:mt-5 text-[13px] lg:text-[22px] leading-[1.2] text-[#BBA98D]">
+          <p className="mt-2 lg:mt-5 text-[13px] lg:text-[18px] leading-[1.2] text-[#BBA98D]">
             <span className="font-semibold">{t.description1}</span>
             <br />
             {t.description2}
@@ -101,7 +101,7 @@ export default function Hero({ t }: { t: HeroT }) {
             href="https://form.typeform.com/to/ZXMA01GK?typeform-source=t.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 md:mt-10 lg:mt-20 inline-block text-[20px] lg:text-[30px] font-semibold text-[#F7E1D0] underline underline-offset-[10px] hover:text-[#D5B77A] transition"
+            className="mt-5 md:mt-10 lg:mt-20 inline-block text-[20px] lg:text-[27px] font-semibold text-[#F7E1D0] underline underline-offset-[10px] hover:text-[#D5B77A] transition"
           >
             {t.cta}
           </Link>
@@ -109,7 +109,7 @@ export default function Hero({ t }: { t: HeroT }) {
           {/* Trusted by marquee logos */}
           <div className="mt-5 md:mt-10 lg:mt-18">
             {/* Section label */}
-            <p className="mb-6 text-[16px] lg:text-[24px] font-medium text-[#BBA98D]">
+            <p className="mb-6 text-[16px] lg:text-[22px] font-medium text-[#BBA98D]">
               {t.trustedBy}
             </p>
             {/* Marquee container */}

@@ -50,7 +50,7 @@ export default function FullFunnelGrowth({
         {/* Title */}
         <h2
           className="
-            text-[33px] md:text-[50px]    /* responsive font sizes */
+            text-[35px] md:text-[45px]    /* responsive font sizes */
             font-semibold                 /* bold */
             text-[#D5B77A]                /* gold color */
             leading-[1.1]                 /* tighter line-height */
