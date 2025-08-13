@@ -53,9 +53,19 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       id: 1,
       title: "SuperWalk",
       iconSrc: "/carousel/superwalk.svg",
+      stats: [
+        { label: "Watchlist & Follower Growth in 2 days", value: "10K+" },
+        { label: "NFT Trading Volume", value: "23M+" },
+        { label: "Transactions", value: "42M+" },
+      ],
     },
     {
       id: 2,
+      title: "Spark",
+      iconSrc: "/carousel/spark.jpg",
+    },
+    {
+      id: 3,
       title: "Arbitrum",
       iconSrc: "/carousel/arbitrum.svg",
       stats: [
@@ -65,14 +75,42 @@ export default function ProvenResults({ t }: { t: ProvenResultsT }) {
       ],
     },
     {
-      id: 3,
+      id: 4,
+      title: "Bitget",
+      iconSrc: "/carousel/bitget.png",
+    },
+    {
+      id: 5,
       title: "Tokyobeast",
       iconSrc: "/carousel/tokyobeast.svg",
+      stats: [
+        { label: "#1 Trending", value: "on Dextool 3 Times in a Month" },
+        { label: "50k+ Participants", value: "in 5 Social Events" },
+        { label: "200K+", value: "Social User Growth" },
+      ],
+    },
+    {
+      id: 6,
+      title: "Okto",
+      iconSrc: "/carousel/okto.jpg",
+    },
+    {
+      id: 7,
+      title: "Delabs",
+      iconSrc: "/carousel/delabs.png",
+      stats: [
+        { label: "Perp Trading Volume in 2 Weeks", value: "$1.2B+" },
+        {
+          label:
+            "Ranked #1 during key phases, surpassing dYdX, with Korea leading global traffic",
+          value: "",
+        },
+      ],
     },
   ];
 
   // Carousel index state and handlers
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(3);
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(items.length - 1, i + 1));
 
