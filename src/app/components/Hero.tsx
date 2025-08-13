@@ -23,14 +23,27 @@ type HeroT = {
 };
 
 export default function Hero({ t }: { t: HeroT }) {
-  // Partner logo paths for marquee
-  const logos = [
-    "/logo-text.svg",
-    "/logo-text.svg",
-    "/logo-text.svg",
-    "/logo-text.svg",
-    "/logo-text.svg",
+  // Partner logos with project names
+  const partners = [
+    { name: "Delabs", src: "/hero/partners/delabs.png" },
+    { name: "FARCANA", src: "/hero/partners/farcana.png" },
+    { name: "Sapien", src: "/hero/partners/sapien.jpg" },
+    { name: "Star heroes", src: "/hero/partners/star-heroes.jpg" },
+    { name: "Gomble games", src: "/hero/partners/gomble-games.jpg" },
+    { name: "Goat gaming", src: "/hero/partners/goat-gaming.png" },
+    { name: "okto", src: "/hero/partners/okto.jpg" },
+    { name: "Rumble Kong", src: "/hero/partners/rumble-kong-league.jpg" },
+    { name: "Overtake", src: "/hero/partners/overtake.png" },
+    { name: "SuperWalk", src: "/hero/partners/superwalk.jpg" },
+    { name: "Snpit", src: "/hero/partners/snpit.jpg" },
+    { name: "Tokyo Beast", src: "/hero/partners/tokyo-beast.png" },
+    { name: "Counter Fire", src: "/hero/partners/counter-fire.png" },
+    { name: "Jannavi Pro", src: "/hero/partners/jannavi-pro.png" },
+    { name: "Sleepagotchi", src: "/hero/partners/sleepagotchi.jpg" },
   ];
+
+  const SEC_PER_ITEM = 2;
+  const duration = partners.length * SEC_PER_ITEM;
 
   return (
     <section
@@ -103,20 +116,30 @@ export default function Hero({ t }: { t: HeroT }) {
             <div className="mt-5 md:mt-10 md:w-[50vw] w-full overflow-hidden relative select-none">
               {/* Animated logo strip */}
               <motion.div
-                className="flex gap-10 lg:gap-18"
-                animate={{ x: [0, "-100%"] }}
-                transition={{ ease: "linear", duration: 8, repeat: Infinity }}
+                className="flex gap-10 lg:gap-18 w-max"
+                style={{ willChange: "transform" }}
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ ease: "linear", duration, repeat: Infinity }}
               >
-                {[...logos, ...logos].map((src, i) => (
-                  <Image
+                {[...partners, ...partners].map((partner, i) => (
+                  <div
                     key={i}
-                    src={src}
-                    alt="partner"
-                    width={0}
-                    height={0}
-                    className="w-auto h-[20px] lg:h-[45px]"
-                    unoptimized
-                  />
+                    className="flex items-center space-x-2 flex-none"
+                  >
+                    <div className="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden flex items-center justify-center">
+                      <Image
+                        src={partner.src}
+                        alt={partner.name}
+                        width={70}
+                        height={70}
+                        className="object-cover w-full h-full"
+                        unoptimized
+                      />
+                    </div>
+                    <span className="text-[#D5B77A] text-lg lg:text-xl font-medium whitespace-nowrap">
+                      {partner.name}
+                    </span>
+                  </div>
                 ))}
               </motion.div>
               {/* Overlay for fade effect */}
