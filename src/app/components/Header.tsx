@@ -15,7 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-// import LanguageSwitch from "@/components/ui/LanguageSwitch";
+import LanguageSwitch from "@/components/ui/LanguageSwitch";
 
 type Locale = "en" | "ja";
 type HeaderT = {
@@ -29,8 +29,8 @@ type HeaderT = {
 };
 
 export default function Header({
-  // locale,
-  // setLocale,
+  locale,
+  setLocale,
   t,
 }: {
   locale: Locale;
@@ -111,13 +111,10 @@ export default function Header({
 
         <div className="hidden lg:inline-flex flex gap-4">
           {/* Language selection control: toggles between English (EN) and Japanese (JA) */}
-          {/* Temporarily disabled for production release until translations are finalized */}
-          {/*
           <LanguageSwitch
             locale={locale}
             onLocaleChange={(l) => setLocale(l)}
           />
-          */}
 
           {/* desktop CTA */}
           <Link
@@ -202,15 +199,12 @@ export default function Header({
               </nav>
 
               {/* Language selection control: toggles between English (EN) and Japanese (JA) */}
-              {/* Temporarily disabled for production release until translations are finalized */}
-              {/*
               <div className="text-center mb-3">
                 <LanguageSwitch
                   locale={locale}
                   onLocaleChange={(l) => setLocale(l)}
                 />
               </div>
-              */}
             </div>
           </motion.div>
         )}
