@@ -85,6 +85,24 @@ export default function ProvenResults({
       id: 2,
       title: "Spark",
       iconSrc: "/carousel/spark.jpg",
+      stats: [
+        {
+          en: { label: "Community Members", value: "50,000+" },
+          ja: { label: "コミュニティメンバー数", value: "5万+" },
+        },
+        {
+          en: { label: "Twitter Followers", value: "100,000+" },
+          ja: { label: "Twitterフォロワー数", value: "10万+" },
+        },
+        {
+          en: { label: "Contents Generated", value: "80+" },
+          ja: { label: "生成コンテンツ数", value: "80+" },
+        },
+        {
+          en: { label: "Regions", value: "Japan, China, Global" },
+          ja: { label: "地域", value: "日本、中国、グローバル" },
+        },
+      ],
     },
     {
       id: 3,
@@ -109,6 +127,27 @@ export default function ProvenResults({
       id: 4,
       title: "Bitget",
       iconSrc: "/carousel/bitget.png",
+      stats: [
+        {
+          en: { label: "Acquired KYC Users", value: "3,000+" },
+          ja: { label: "獲得KYCユーザー数", value: "3千+" },
+        },
+        {
+          en: { label: "Total Impression", value: "1.2M+" },
+          ja: { label: "トータルインプレッション数", value: "120万+" },
+        },
+        {
+          en: { label: "Contents Generated", value: "32" },
+          ja: { label: "生成コンテンツ数", value: "32" },
+        },
+        {
+          en: { label: "Regions", value: "Japan, SEA(PH&VN), India" },
+          ja: {
+            label: "地域",
+            value: "日本、東南アジア（フィリピン＆ベトナム）、インド",
+          },
+        },
+      ],
     },
     {
       id: 5,
@@ -136,6 +175,32 @@ export default function ProvenResults({
       id: 6,
       title: "Okto",
       iconSrc: "/carousel/okto.jpg",
+      stats: [
+        {
+          en: { label: "Referral LTV", value: "300,000" },
+          ja: { label: "リファラルLTV", value: "30万" },
+        },
+        {
+          en: { label: "Total Reach", value: "120,000+" },
+          ja: { label: "総リーチ数", value: "12万+" },
+        },
+        {
+          en: { label: "Content Generated", value: "70+" },
+          ja: { label: "生成コンテンツ数", value: "70+" },
+        },
+        {
+          en: {
+            label: "Region",
+            value:
+              "Japan and Hyperliquid KOLs. This one is very strong cause 300k total money deposited to OKTO wallet from our KOLs referral links.",
+          },
+          ja: {
+            label: "地域",
+            value:
+              "日本とHyperliquidのKOL。KOLのリファラルリンク経由でOKTOウォレットに30万ドルが入金された。",
+          },
+        },
+      ],
     },
     {
       id: 7,
@@ -204,9 +269,10 @@ export default function ProvenResults({
                   p-6
                   rounded-3xl
                   transition-all
-                  ${isActive
-                    ? "bg-[#1C1C1C] scale-105 md:border md:border-[#D5B77A] md:shadow-[0_0_25px_rgba(213,183,122,0.6)]"
-                    : "bg-[#1A1A1A] opacity-40 md:border md:border-gray-300"
+                  ${
+                    isActive
+                      ? "bg-[#1C1C1C] scale-105 md:border md:border-[#D5B77A] md:shadow-[0_0_25px_rgba(213,183,122,0.6)]"
+                      : "bg-[#1A1A1A] opacity-40 md:border md:border-gray-300"
                   }
                 `}
               >
