@@ -140,7 +140,7 @@ export default function Footer({ t }: { t: FooterT }) {
             </li>
             <li>
               <Link
-                href="https://discord.com/invite/0xqube"
+                href="https://discord.com/invite/znnZh4ZDdK"
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center space-x-2 hover:text-[#D5B77A]"
